@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.23)
+project(calcSheet)
+find_package(wxWidgets REQUIRED COMPONENTS net core base)
+include(${wxWidgets_USE_FILE})
+set(CMAKE_CXX_STANDARD 14)
+add_executable(calcSheet main.cpp FlexGridSizer.h FlexGridSizer.cpp main.h main.h FlexGridSizer.h FlexGridSizer.cpp)
+target_link_libraries(calcSheet ${wxWidgets_LIBRARIES})
