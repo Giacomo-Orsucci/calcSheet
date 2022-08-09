@@ -37,7 +37,7 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
             }
             fgs->Add(tC);
         }
-    
+
     hbox->Add(fgs, 1, wxALL | wxEXPAND, 0);
     panel->SetSizer(hbox);
     Centre();
