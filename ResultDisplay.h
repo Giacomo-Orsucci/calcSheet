@@ -18,7 +18,7 @@ public:
 
     void update() override;
 
-    virtual ~ResultDisplay();
+    virtual ~ResultDisplay() {};
 
 private:
     std::list<Subject *> subjects;

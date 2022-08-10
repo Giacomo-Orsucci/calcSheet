@@ -15,7 +15,7 @@ public:
 
     virtual void unsubscribeSubject(Subject *s) = 0;
 
-    virtual ~Observer();
+    virtual ~Observer() {};
 };
 
 #endif //CALCSHEET_OBSERVER_H

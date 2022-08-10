@@ -9,7 +9,7 @@
 #include "Subject.h"
 #include "Observer.h"
 
-class FlexGridSizer : public wxFrame, public Subject {
+class FlexGridSizer : public wxFrame {
 public:
     FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
                   const int nColumns, const int cellWidth, const int cellHeight, long style);

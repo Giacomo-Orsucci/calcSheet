@@ -25,7 +25,7 @@ public:
 
     void notify() override;
 
-    ~TextControl();
+    virtual ~TextControl() {};
 
 private:
     double value;

@@ -15,7 +15,7 @@ public:
 
     virtual void printValue() = 0;
 
-    virtual ~Subject();
+    virtual ~Subject() {};
 };
 
 #endif //CALCSHEET_SUBJECT_H
