@@ -26,10 +26,13 @@ public:
     void notify() override;
 
     virtual ~TextControl() {};
-
 private:
     double value;
     Observer *observer;
+
+    void OnEnter(wxCommandEvent &event);
+
+wxDECLARE_EVENT_TABLE();
 };
 
 

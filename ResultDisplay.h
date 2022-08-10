@@ -6,15 +6,16 @@
 #define CALCSHEET_RESULTDISPLAY_H
 
 #include "Observer.h"
+#include "TextControl.h"
 #include <list>
 
-enum operation {
+enum class Operation {
     MIN, MAX, MEAN, SUM
 };
 
 class ResultDisplay : public Observer {
 public:
-    ResultDisplay(Subject *cell);
+    ResultDisplay(Subject *cell, Operation operation);
 
     void subscribeSubject(Subject *s) override;
 
@@ -27,7 +28,7 @@ public:
 private:
     std::list<Subject *> subjects;
     Subject *resultCell;
-    operation opr;
+    Operation opr;
 };
 
 

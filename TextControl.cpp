@@ -25,3 +25,11 @@ void TextControl::printValue() {
 void TextControl::notify() {
     observer->update();
 }
+
+void TextControl::OnEnter(wxCommandEvent &event) {
+    notify();
+}
+
+wxBEGIN_EVENT_TABLE(TextControl, wxTextCtrl)
+                EVT_COMMAND_ENTER(wxEVT_TEXT_ENTER, TextControl::OnEnter)
+wxEND_EVENT_TABLE()
