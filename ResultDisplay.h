@@ -8,6 +8,10 @@
 #include "Observer.h"
 #include <list>
 
+enum operation {
+    MIN, MAX, MEAN, SUM
+};
+
 class ResultDisplay : public Observer {
 public:
     ResultDisplay(Subject *cell);
@@ -23,6 +27,7 @@ public:
 private:
     std::list<Subject *> subjects;
     Subject *resultCell;
+    operation opr;
 };
 
 
