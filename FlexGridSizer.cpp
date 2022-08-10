@@ -3,6 +3,7 @@
 //
 
 #include "FlexGridSizer.h"
+#include "TextControl.h"
 #include <string>
 
 FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
@@ -20,19 +21,21 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
 
     for (int i = 0; i < nRows; i++)
         for (int j = 0; j < nColumns; j++) {
-
             if (j == 0 && i != 0) {
-                tC = new wxTextCtrl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight), tCStyle);
+                tC = new TextControl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight),
+                                     tCStyle);
                 tC->AppendText(std::to_string(rowCounter));
                 rowCounter++;
             } else if (j == 0 && i == 0) {
-                tC = new wxTextCtrl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight), tCStyle);
+                tC = new TextControl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight),
+                                     tCStyle);
             } else if (i == 0 && j != 0) {
-                tC = new wxTextCtrl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight), tCStyle);
+                tC = new TextControl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight),
+                                     tCStyle);
                 tC->AppendText(char(columnCounter));
                 columnCounter++;
             } else {
-                tC = new wxTextCtrl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight));
+                tC = new TextControl(panel, i, wxEmptyString, wxDefaultPosition, wxSize(cellWidth, cellHeight));
             }
             fgs->Add(tC);
         }

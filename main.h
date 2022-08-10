@@ -7,9 +7,9 @@
 
 #include <wx/wx.h>
 
-#endif //CALCSHEET_MAIN_H
-
 class MyApp : public wxApp {
 public:
     virtual bool OnInit();
 };
+
+#endif //CALCSHEET_MAIN_H
