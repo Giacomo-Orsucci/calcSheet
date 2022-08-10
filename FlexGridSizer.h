@@ -16,14 +16,3 @@ public:
 };
 
 #endif //CALCSHEET_FLEXGRIDSIZER_H
-
-/*
-void notify() override;
-double getValue() override;
-double setValue(double v) override;
-void printValue() override;
-private:
-Observer* obs;
-double value;
-
- */
