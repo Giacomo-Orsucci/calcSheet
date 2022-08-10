@@ -14,8 +14,7 @@
 class TextControl : public wxTextCtrl, public Subject {
 public:
     TextControl(wxWindow *parent, wxWindowID id, const wxString &value = wxEmptyString,
-                const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0,
-                Observer *obs = nullptr);
+                const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0);
 
     double getValue() override;
 
@@ -23,16 +22,18 @@ public:
 
     void printValue() override;
 
+    void setObserver(Observer *o);
+
     void notify() override;
+
+    void OnEnter(wxKeyEvent &event);
 
     virtual ~TextControl() {};
 private:
     double value;
     Observer *observer;
 
-    void OnEnter(wxCommandEvent &event);
-
-wxDECLARE_EVENT_TABLE();
+DECLARE_EVENT_TABLE();
 };
 
 
