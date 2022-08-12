@@ -5,7 +5,7 @@
 #ifndef CALCSHEET_SUBJECT_H
 #define CALCSHEET_SUBJECT_H
 
-class Subject {
+class Subject { //abstract observer
 public:
     virtual void notify() = 0;
 

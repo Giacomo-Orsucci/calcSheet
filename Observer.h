@@ -7,7 +7,7 @@
 
 #include "Subject.h"
 
-class Observer {
+class Observer { //abstract observer
 public:
     virtual void update() = 0;
 
@@ -15,7 +15,7 @@ public:
 
     virtual void unsubscribeSubject(Subject *s) = 0;
 
-    virtual ~Observer() {};
+    virtual ~Observer() = default;
 };
 
 #endif //CALCSHEET_OBSERVER_H

@@ -9,11 +9,11 @@
 #include "TextControl.h"
 #include <list>
 
-enum class Operation {
+enum class Operation { //list of the implemented functions
     MIN, MAX, MEAN, SUM
 };
 
-class ResultDisplay : public Observer {
+class ResultDisplay : public Observer { //concrete observer
 public:
     ResultDisplay(Subject *cell, Operation operation);
 
@@ -23,12 +23,12 @@ public:
 
     void update() override;
 
-    virtual ~ResultDisplay() {};
+    ~ResultDisplay() override = default;
 
 private:
-    std::list<Subject *> subjects;
-    Subject *resultCell;
-    Operation opr;
+    std::list<Subject *> subjects; //list of the cells to observe
+    Subject *resultCell; //cell where to write the result
+    Operation opr; //function executed by the specific observer
 };
 
 

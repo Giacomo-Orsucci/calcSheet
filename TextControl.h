@@ -12,10 +12,12 @@
 #include "Observer.h"
 
 
-class TextControl : public wxTextCtrl, public Subject {
+class TextControl : public wxTextCtrl, public Subject { //concrete subject
 public:
+    //exactly the parameter of the interested wxTextCtrl constructor
     TextControl(wxWindow *parent, wxWindowID id, const wxString &value = wxEmptyString,
                 const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0);
+
     double getValue() override;
 
     void setValue(double v) override;
@@ -28,12 +30,13 @@ public:
 
     void OnEnter(wxCommandEvent &event);
 
-    virtual ~TextControl() {};
+    ~TextControl() override = default;
+
 private:
     double value;
     Observer *observer;
 
-DECLARE_EVENT_TABLE();
+DECLARE_EVENT_TABLE(); //to handle events
 };
 
 #endif //CALCSHEET_TEXTCONTROL_H

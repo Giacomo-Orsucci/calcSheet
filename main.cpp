@@ -4,6 +4,7 @@
 IMPLEMENT_APP(MyApp)
 
 bool MyApp::OnInit() {
+    //all the necessary constants to draw the graphic window
     static const int NCOLUMNS = 12;
     static const int NROWS = 9;
     static const int CELLWIDTH = 150;

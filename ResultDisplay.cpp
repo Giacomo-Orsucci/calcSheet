@@ -14,7 +14,7 @@ void ResultDisplay::unsubscribeSubject(Subject *s) {
     subjects.remove(s);
 }
 
-void ResultDisplay::update() {
+void ResultDisplay::update() { //it implements the observer function depending on the operation attribute
 
     if (opr == Operation::MIN) {
         double app = (*(subjects.begin()))->getValue();

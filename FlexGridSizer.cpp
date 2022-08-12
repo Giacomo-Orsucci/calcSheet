@@ -7,13 +7,15 @@
 #include "ResultDisplay.h"
 #include <string>
 #include <list>
-//TODO CLEAN THE CODE
+
 FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
                              const int nColumns, const int cellWidth, const int cellHeight, long style)
         : wxFrame(NULL, -1, title, wxPoint(-1, -1), wxSize(windowWidth, windowHeight), style) {
-    int rowCounter = 1;
-    int columnCounter = 65;
+
+    int rowCounter = 1; //to write number in the first column
+    int columnCounter = 65; //to write letters in the first row
     long tCStyle = wxTE_READONLY | wxTE_CENTER;
+    //lists to associate correctly subjects and observers
     std::list<TextControl *> tCL2;
     std::list<TextControl *> tCL5;
     std::list<TextControl *> tCL8;
@@ -24,6 +26,7 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
     wxBoxSizer *hbox = new wxBoxSizer(wxHORIZONTAL);
     wxFlexGridSizer *fgs = new wxFlexGridSizer(nRows, nColumns, 0, 0);
     TextControl *tC;
+    //observers
     ResultDisplay *displayMin;
     ResultDisplay *displayMax;
     ResultDisplay *displayMean;
@@ -31,24 +34,24 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
 
     for (int i = 0; i < nRows; i++)
         for (int j = 0; j < nColumns; j++) {
-            if (j == 0 && i != 0) {
+            if (j == 0 && i != 0) { //first column with numbers
                 tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
                                      wxSize(cellWidth, cellHeight),
                                      tCStyle);
                 tC->AppendText(std::to_string(rowCounter));
                 rowCounter++;
-            } else if (j == 0 && i == 0) {
+            } else if (j == 0 && i == 0) { //position (0,0). empty but not editable
                 tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
                                      wxSize(cellWidth, cellHeight),
                                      tCStyle);
-            } else if (i == 0 && j != 0) {
+            } else if (i == 0 && j != 0) { //first row with letters
                 tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
                                      wxSize(cellWidth, cellHeight),
                                      tCStyle);
                 tC->AppendText(char(columnCounter));
                 columnCounter++;
             } else {
-                if (i == nRows - 1) {
+                if (i == nRows - 1) { //setting the last row
                     switch (j) {
                         case 1:
                             tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
@@ -96,20 +99,20 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                     }
                 } else {
                     long style = wxTE_PROCESS_ENTER;
-                    int id = 0;
+                    int id = 0; //id to handle the "enter text event"
                     tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
                                          wxSize(cellWidth, cellHeight), style);
-                        if (i > 0 && i < nRows - 1) {
-                            if (j == 2) {
-                                tC->AppendText(std::to_string(0));
-                                tC->setValue(0);
-                                tC->SetId(id);
-                                tCL2.push_back(tC);
-                            }
-                            if (j == 5) {
-                                tC->AppendText(std::to_string(0));
-                                tC->setValue(0);
-                                tC->SetId(id);
+                    if (i > 0 && i < nRows - 1) { //setting the subject-columns
+                        if (j == 2) {
+                            tC->AppendText(std::to_string(0));
+                            tC->setValue(0);
+                            tC->SetId(id);
+                            tCL2.push_back(tC);
+                        }
+                        if (j == 5) {
+                            tC->AppendText(std::to_string(0));
+                            tC->setValue(0);
+                            tC->SetId(id);
                                 tCL5.push_back(tC);
                             }
                             if (j == 8) {
@@ -129,7 +132,7 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
             }
             fgs->Add(tC);
         }
-
+//associating observers and subjects
     for (auto itr = tCL2.begin(); itr != tCL2.end(); itr++) {
         displayMin->subscribeSubject((*itr));
         (*itr)->setObserver(displayMin);
