@@ -18,6 +18,7 @@ void ResultDisplay::update() {
 
     if (opr == Operation::MIN) {
         double app = (*(subjects.begin()))->getValue();
+
         for (auto itr = subjects.begin(); itr != subjects.end(); itr++) {
             if ((*itr)->getValue() < app)
                 app = (*itr)->getValue();

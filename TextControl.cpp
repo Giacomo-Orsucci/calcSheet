@@ -3,6 +3,7 @@
 //
 
 #include "TextControl.h"
+#include <string>
 
 TextControl::TextControl(wxWindow *parent, wxWindowID id, const wxString &value, const wxPoint &pos, const wxSize &size,
                          long style)
@@ -10,15 +11,17 @@ TextControl::TextControl(wxWindow *parent, wxWindowID id, const wxString &value,
 }
 
 double TextControl::getValue() {
-    return value;
+    wxString string = wxTextCtrl::GetValue();
+    double val;
+    string.ToDouble(&val);
 }
-
 void TextControl::setValue(double v) {
     value = v;
 }
 
 void TextControl::printValue() {
-    this->AppendText(char(value));
+    this->Clear();
+    this->AppendText(std::to_string(value));
 }
 
 void TextControl::setObserver(Observer *o) {

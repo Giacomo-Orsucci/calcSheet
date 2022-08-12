@@ -49,33 +49,50 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                 columnCounter++;
             } else {
                 if (i == nRows - 1) {
-                    tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
-                                         wxSize(cellWidth, cellHeight), tCStyle);
                     switch (j) {
                         case 1:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight), tCStyle);
                             tC->AppendText("MIN: ");
                             break;
                         case 2:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight));
                             displayMin = new ResultDisplay(tC, Operation::MIN);
                             break;
                         case 4:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight), tCStyle);
                             tC->AppendText("MAX: ");
                             break;
                         case 5:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight));
                             displayMax = new ResultDisplay(tC, Operation::MAX);
                             break;
                         case 7:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight), tCStyle);
                             tC->AppendText("MEAN: ");
                             break;
                         case 8:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight));
                             displayMean = new ResultDisplay(tC, Operation::MEAN);
                             break;
                         case 10:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight), tCStyle);
                             tC->AppendText("SUM: ");
                             break;
                         case 11:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight));
                             displaySum = new ResultDisplay(tC, Operation::SUM);
                             break;
+                        default:
+                            tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
+                                                 wxSize(cellWidth, cellHeight));
                     }
                 } else {
                     long style = wxTE_PROCESS_ENTER;
@@ -85,21 +102,25 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                         if (i > 0 && i < nRows - 1) {
                             if (j == 2) {
                                 tC->AppendText(std::to_string(0));
+                                tC->setValue(0);
                                 tC->SetId(id);
                                 tCL2.push_back(tC);
                             }
                             if (j == 5) {
                                 tC->AppendText(std::to_string(0));
+                                tC->setValue(0);
                                 tC->SetId(id);
                                 tCL5.push_back(tC);
                             }
                             if (j == 8) {
                                 tC->AppendText(std::to_string(0));
+                                tC->setValue(0);
                                 tC->SetId(id);
                                 tCL8.push_back(tC);
                             }
                             if (j == 11) {
                                 tC->AppendText(std::to_string(0));
+                                tC->setValue(0);
                                 tC->SetId(id);
                                 tCL11.push_back(tC);
                             }
