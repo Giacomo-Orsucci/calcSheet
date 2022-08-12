@@ -26,7 +26,7 @@ public:
 
     void notify() override;
 
-    void OnEnter(wxKeyEvent &event);
+    void OnEnter(wxCommandEvent &event);
 
     virtual ~TextControl() {};
 private:

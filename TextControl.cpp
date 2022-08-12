@@ -29,11 +29,11 @@ void TextControl::notify() { //TODO CORRECT AND ADJUST
     observer->update();
 }
 
-void TextControl::OnEnter(wxKeyEvent &event) {
+void TextControl::OnEnter(wxCommandEvent &event) {
     wxMessageBox("You pressed a key");
     notify();
 }
 
-BEGIN_EVENT_TABLE(TextControl, wxTextCtrl) //TODO FIND THE RIGHT EVENT
-        EVT_CHAR_HOOK(TextControl::OnEnter)
+BEGIN_EVENT_TABLE(TextControl, wxTextCtrl)
+                EVT_TEXT_ENTER(0, TextControl::OnEnter)
 END_EVENT_TABLE()
