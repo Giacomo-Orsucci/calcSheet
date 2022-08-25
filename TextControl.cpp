@@ -8,12 +8,15 @@
 TextControl::TextControl(wxWindow *parent, wxWindowID id, const wxString &value, const wxPoint &pos, const wxSize &size,
                          long style) : wxTextCtrl(parent, id, value, pos, size, style) {}
 
-double TextControl::getValue() { //to get the value inserted in the cell
+bool TextControl::getValue(double &value) { //to get the value inserted in the cell
     wxString string = wxTextCtrl::GetValue();
-    double val;
-    string.ToDouble(&val);
-    value = val;
-    return value;
+
+    if (string.ToDouble(&value))
+        return true;
+    else {
+        value = 0;
+        return false;
+    }
 }
 
 void TextControl::setValue(double v) {

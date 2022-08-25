@@ -15,35 +15,42 @@ void ResultDisplay::unsubscribeSubject(Subject *s) {
 }
 
 void ResultDisplay::update() { //it implements the observer function depending on the operation attribute
+    double temp = 0;
+    double current;
 
     if (opr == Operation::MIN) {
-        double app = (*(subjects.begin()))->getValue();
-
+        (*(subjects.begin()))->getValue(temp);
         for (auto itr = subjects.begin(); itr != subjects.end(); itr++) {
-            if ((*itr)->getValue() < app)
-                app = (*itr)->getValue();
+            (*itr)->getValue(current);
+            if (current < temp)
+                temp = current;
         }
-        resultCell->setValue(app);
+        resultCell->setValue(temp);
     } else if (opr == Operation::MAX) {
-        double app = (*(subjects.begin()))->getValue();
+        (*(subjects.begin()))->getValue(temp);
         for (auto itr = subjects.begin(); itr != subjects.end(); itr++) {
-            if ((*itr)->getValue() > app)
-                app = (*itr)->getValue();
+            (*itr)->getValue(current);
+            if (current > temp)
+                temp = current;
         }
-        resultCell->setValue(app);
+        resultCell->setValue(temp);
     } else if (opr == Operation::MEAN) {
         double result = 0;
         int i = 0;
         for (auto itr = subjects.begin(); itr != subjects.end(); itr++) {
-            result += (*itr)->getValue();
-            i++;
+            if ((*itr)->getValue(temp)) {
+                result += temp;
+                i++;
+            } else
+                temp = 0;
         }
         result /= i;
         resultCell->setValue(result);
     } else if (opr == Operation::SUM) {
         double result = 0;
         for (auto itr = subjects.begin(); itr != subjects.end(); itr++) {
-            result += (*itr)->getValue();
+            (*itr)->getValue(temp);
+            result += temp;
         }
         resultCell->setValue(result);
     }

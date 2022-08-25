@@ -18,9 +18,9 @@ public:
     TextControl(wxWindow *parent, wxWindowID id, const wxString &value = wxEmptyString,
                 const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0);
 
-    double getValue() override;
+    bool getValue(double &value) override;
 
-    void setValue(double v) override;
+    void setValue(double value) override;
 
     void printValue() override;
 

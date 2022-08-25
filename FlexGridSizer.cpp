@@ -105,25 +105,21 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                     if (i > 0 && i < nRows - 1) { //setting the subject-columns
                         if (j == 2) {
                             tC->AppendText(std::to_string(0));
-                            tC->setValue(0);
                             tC->SetId(id);
                             tCL2.push_back(tC);
                         }
                         if (j == 5) {
                             tC->AppendText(std::to_string(0));
-                            tC->setValue(0);
                             tC->SetId(id);
-                                tCL5.push_back(tC);
+                            tCL5.push_back(tC);
                             }
                             if (j == 8) {
-                                tC->AppendText(std::to_string(0));
-                                tC->setValue(0);
+                                tC->AppendText("");
                                 tC->SetId(id);
                                 tCL8.push_back(tC);
                             }
                             if (j == 11) {
                                 tC->AppendText(std::to_string(0));
-                                tC->setValue(0);
                                 tC->SetId(id);
                                 tCL11.push_back(tC);
                             }
