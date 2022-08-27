@@ -1,5 +1,6 @@
 #include "main.h"
 #include "FlexGridSizer.h"
+#include "TextControl.h"
 
 IMPLEMENT_APP(MyApp)
 
@@ -15,7 +16,6 @@ bool MyApp::OnInit() {
 
     FlexGridSizer *fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
                                            CELLWIDTH, CELLHEIGHT, style);
-
     fgs->Show(true);
 
     return true;

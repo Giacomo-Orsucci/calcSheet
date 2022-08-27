@@ -152,3 +152,5 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
     panel->SetSizer(hbox);
     Centre();
 }
+
+FlexGridSizer::FlexGridSizer() : wxFrame() {}

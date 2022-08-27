@@ -5,8 +5,6 @@
 #include "TextControl.h"
 #include <string>
 
-TextControl::TextControl(wxWindow *parent, wxWindowID id, const wxString &value, const wxPoint &pos, const wxSize &size,
-                         long style) : wxTextCtrl(parent, id, value, pos, size, style) {}
 
 bool TextControl::getValue(double &value) { //to get the value inserted in the cell
     wxString string = wxTextCtrl::GetValue();
@@ -21,6 +19,7 @@ bool TextControl::getValue(double &value) { //to get the value inserted in the c
 
 void TextControl::setValue(double v) {
     value = v;
+    printValue();
 }
 
 void TextControl::printValue() {

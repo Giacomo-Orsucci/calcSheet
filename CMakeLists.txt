@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.23)
 project(calcSheet)
+
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 set(CMAKE_CXX_STANDARD 14)
-add_executable(calcSheet main.cpp FlexGridSizer.h FlexGridSizer.cpp main.h main.h FlexGridSizer.h FlexGridSizer.cpp Subject.h Observer.h ResultDisplay.cpp ResultDisplay.h TextControl.cpp TextControl.h)
-target_link_libraries(calcSheet ${wxWidgets_LIBRARIES})
+add_subdirectory(test)
+set(SOURCE_FILES FlexGridSizer.h FlexGridSizer.cpp main.h main.h FlexGridSizer.h FlexGridSizer.cpp Subject.h Observer.h ResultDisplay.cpp ResultDisplay.h TextControl.cpp TextControl.h)
+add_executable(calcSheet main.cpp)
+add_library(core ${SOURCE_FILES})
+target_link_libraries(calcSheet ${wxWidgets_LIBRARIES} core)

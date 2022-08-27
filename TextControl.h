@@ -10,13 +10,15 @@
 #include <list>
 #include "Subject.h"
 #include "Observer.h"
+#include "gtest/gtest.h"
 
 
 class TextControl : public wxTextCtrl, public Subject { //concrete subject
 public:
     //exactly the parameter of the interested wxTextCtrl constructor
     TextControl(wxWindow *parent, wxWindowID id, const wxString &value = wxEmptyString,
-                const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0);
+                const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0)
+            : wxTextCtrl(parent, id, value, pos, size, style) {}
 
     bool getValue(double &value) override;
 
