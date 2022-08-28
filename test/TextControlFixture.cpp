@@ -7,6 +7,7 @@
 #include "../FlexGridSizer.h"
 #include <wx/wx.h>
 
+
 class TextControlFixture : public ::testing::Test {
 protected:
     virtual void SetUp() {
@@ -16,7 +17,7 @@ protected:
         static const int CELLHEIGHT = 50;
         static const int WINDOWWIGHT = CELLWIDTH * NCOLUMNS;
         static const int WINDOWHEIGHT = CELLHEIGHT * NROWS + 40;
-        long style = wxCAPTION | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxCLOSE_BOX;
+        long style = 0;
 
         FlexGridSizer *fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
                                                CELLWIDTH, CELLHEIGHT, style);
@@ -32,9 +33,7 @@ protected:
     TextControl *tC;
 
 };
-/*TEST_F(TextControlFixture, Get_and_Set){
-    tC->setValue(5);
-    double value;
-    tC->getValue(value);
-    ASSERT_EQ(5,value);
-} */
+
+TEST_F(TextControlFixture, TestMove) {
+
+}
