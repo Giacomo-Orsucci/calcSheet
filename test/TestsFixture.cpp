@@ -45,7 +45,6 @@ protected:
         app->OnExit();
         wxEntryCleanup();
     }
-
 };
 
 TEST_F(TestsFixture, Text_Control_Get_and_Set_right) {
@@ -65,7 +64,7 @@ TEST_F(TestsFixture, Text_Control_Get_and_Set_wrong) {
 TEST_F(TestsFixture, Min) {
     tC1->setValue(1);
     tC2->setValue(2);
-    tC3->AppendText("adf");
+    tC3->AppendText("adf"); //simulates the wrong client's input
     tC4->setValue(-5);
     rDMin->subscribeSubject(tC1);
     rDMin->subscribeSubject(tC2);
@@ -81,7 +80,7 @@ TEST_F(TestsFixture, Min) {
 TEST_F(TestsFixture, Max) {
     tC1->setValue(1);
     tC2->setValue(2);
-    tC3->AppendText("adf");
+    tC3->AppendText("adf"); //simulates the wrong client's input
     tC4->setValue(-5);
     rDMax->subscribeSubject(tC1);
     rDMax->subscribeSubject(tC2);
@@ -97,7 +96,7 @@ TEST_F(TestsFixture, Max) {
 TEST_F(TestsFixture, Mean) {
     tC1->setValue(2);
     tC2->setValue(2);
-    tC3->AppendText("adf");
+    tC3->AppendText("adf"); //simulates the wrong client's input
     tC4->setValue(5);
     rDMean->subscribeSubject(tC1);
     rDMean->subscribeSubject(tC2);
@@ -113,7 +112,7 @@ TEST_F(TestsFixture, Mean) {
 TEST_F(TestsFixture, Sum) {
     tC1->setValue(1);
     tC2->setValue(2);
-    tC3->AppendText("adf");
+    tC3->AppendText("adf"); //simulates the wrong client's input
     tC4->setValue(-5);
     rDSum->subscribeSubject(tC1);
     rDSum->subscribeSubject(tC2);

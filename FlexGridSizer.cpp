@@ -95,10 +95,10 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                     }
                 } else {
                     long style = wxTE_PROCESS_ENTER;
-                    int id = 0; //id to handle the "enter text event"
                     tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
                                          wxSize(cellWidth, cellHeight), style);
                     if (i > 0 && i < nRows - 1) { //setting the subject-columns
+                        int id = 0; //id to handle the "enter text event"
                         if (j == 2) {
                             tC->AppendText(std::to_string(0));
                             tC->SetId(id);
@@ -108,18 +108,18 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                             tC->AppendText(std::to_string(0));
                             tC->SetId(id);
                             tCL5.push_back(tC);
-                            }
-                            if (j == 8) {
-                                tC->AppendText("");
-                                tC->SetId(id);
-                                tCL8.push_back(tC);
-                            }
-                            if (j == 11) {
-                                tC->AppendText(std::to_string(0));
-                                tC->SetId(id);
-                                tCL11.push_back(tC);
-                            }
                         }
+                        if (j == 8) {
+                            tC->AppendText("");
+                            tC->SetId(id);
+                            tCL8.push_back(tC);
+                        }
+                        if (j == 11) {
+                            tC->AppendText(std::to_string(0));
+                            tC->SetId(id);
+                            tCL11.push_back(tC);
+                        }
+                    }
                 }
             }
             fgs->Add(tC);
@@ -149,4 +149,3 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
     Centre();
 }
 
-FlexGridSizer::FlexGridSizer() : wxFrame() {}

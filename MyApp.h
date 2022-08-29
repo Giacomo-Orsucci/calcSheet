@@ -7,6 +7,9 @@
 
 #include <wx/wx.h>
 #include "FlexGridSizer.h"
+#include <linux/membarrier.h>
+#include <sys/syscall.h>
+#include <sys/syscall.h>
 
 class MyApp : public wxApp {
 public:

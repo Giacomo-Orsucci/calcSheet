@@ -54,6 +54,5 @@ void ResultDisplay::update() { //it implements the observer function depending o
         }
         resultCell->setValue(result);
     }
-
     resultCell->printValue();
 }
