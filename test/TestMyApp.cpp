@@ -16,7 +16,7 @@ bool TestMyApp::OnInit() {
 
     fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
                             CELLWIDTH, CELLHEIGHT, style);
-    fgs->Show(true);
+    fgs->Show(false);
 
     return true;
 }
