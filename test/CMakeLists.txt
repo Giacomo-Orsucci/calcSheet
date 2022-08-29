@@ -9,7 +9,7 @@ set(gtest_SOURCE_DIR, ./lib/googletest/)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 
-set(TEST_SOURCE_FILES TextControlFixture.cpp runAllTests.cpp)
+set(TEST_SOURCE_FILES TextControlFixture.cpp runAllTests.cpp TestMyApp.cpp TestMyApp.h)
 add_executable(runUnitTesting ${TEST_SOURCE_FILES})
 target_link_libraries(runUnitTesting gtest gtest_main ${wxWidgets_LIBRARIES} core)
 

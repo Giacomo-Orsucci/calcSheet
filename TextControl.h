@@ -14,7 +14,10 @@
 
 
 class TextControl : public wxTextCtrl, public Subject { //concrete subject
+    FRIEND_TEST(TextControlFixture, Get_and_Set);
+
 public:
+
     //exactly the parameter of the interested wxTextCtrl constructor
     TextControl(wxWindow *parent, wxWindowID id, const wxString &value = wxEmptyString,
                 const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0)

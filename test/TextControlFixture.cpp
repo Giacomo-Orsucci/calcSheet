@@ -3,37 +3,37 @@
 //
 
 #include "gtest/gtest.h"
-#include "../TextControl.h"
-#include "../FlexGridSizer.h"
+#include "TestMyApp.h"
 #include <wx/wx.h>
 
 
 class TextControlFixture : public ::testing::Test {
 protected:
+    TestMyApp *app;
+    TextControl *tC;
+
     virtual void SetUp() {
-        static const int NCOLUMNS = 12;
-        static const int NROWS = 9;
-        static const int CELLWIDTH = 150;
-        static const int CELLHEIGHT = 50;
-        static const int WINDOWWIGHT = CELLWIDTH * NCOLUMNS;
-        static const int WINDOWHEIGHT = CELLHEIGHT * NROWS + 40;
-        long style = 0;
-
-        FlexGridSizer *fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
-                                               CELLWIDTH, CELLHEIGHT, style);
-
-        fgs->Show(true);
-
-        wxPanel *panel = new wxPanel(fgs, 0);
+        char appname[] = "wxUnitTest.exe";
+        int argc = 1;
+        char *argv[1] = {appname};
+        app = new TestMyApp();
+        wxApp::SetInstance(app);
+        wxEntryStart(argc, argv);
+        app->OnInit();
+        wxPanel *panel = new wxPanel(app->fgs, -1);
         tC = new TextControl(panel, 0, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
-        tC->Clear();
-        tC->AppendText("");
     }
 
-    TextControl *tC;
+    virtual void TearDown() {
+        app->OnExit();
+        wxEntryCleanup();
+    }
 
 };
 
-TEST_F(TextControlFixture, TestMove) {
-
+TEST_F(TextControlFixture, Get_and_Set) {
+    tC->setValue(5);
+    double value;
+    tC->getValue(value);
+    ASSERT_EQ(value, 5);
 }

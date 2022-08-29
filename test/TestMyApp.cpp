@@ -1,10 +1,10 @@
-#include "main.h"
-#include "FlexGridSizer.h"
-#include "TextControl.h"
+//
+// Created by giacomo on 29/08/22.
+//
 
-IMPLEMENT_APP(MyApp)
+#include "TestMyApp.h"
 
-bool MyApp::OnInit() {
+bool TestMyApp::OnInit() {
     //all the necessary constants to draw the graphic window
     static const int NCOLUMNS = 12;
     static const int NROWS = 9;
@@ -14,8 +14,8 @@ bool MyApp::OnInit() {
     static const int WINDOWHEIGHT = CELLHEIGHT * NROWS + 40;
     long style = wxCAPTION | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxCLOSE_BOX;
 
-    FlexGridSizer *fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
-                                           CELLWIDTH, CELLHEIGHT, style);
+    fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
+                            CELLWIDTH, CELLHEIGHT, style);
     fgs->Show(true);
 
     return true;

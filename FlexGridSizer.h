@@ -8,8 +8,13 @@
 #include <wx/wx.h>
 #include "Subject.h"
 #include "Observer.h"
+#include "TextControl.h"
+#include "ResultDisplay.h"
+#include <string>
+#include <list>
 
 class FlexGridSizer : public wxFrame {
+
 public:
     FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
                   const int nColumns, const int cellWidth, const int cellHeight, long style);
