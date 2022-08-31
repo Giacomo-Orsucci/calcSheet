@@ -11,22 +11,10 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
     int rowCounter = 1; //to write number in the first column
     int columnCounter = 65; //to write letters in the first row
     long tCStyle = wxTE_READONLY | wxTE_CENTER;
-    //lists to associate correctly subjects and observers
-    std::list<TextControl *> tCL2;
-    std::list<TextControl *> tCL5;
-    std::list<TextControl *> tCL8;
-    std::list<TextControl *> tCL11;
 
-
-    wxPanel *panel = new wxPanel(this, -1);
-    wxBoxSizer *hbox = new wxBoxSizer(wxHORIZONTAL);
-    wxFlexGridSizer *fgs = new wxFlexGridSizer(nRows, nColumns, 0, 0);
-    TextControl *tC;
-    //observers
-    ResultDisplay *displayMin;
-    ResultDisplay *displayMax;
-    ResultDisplay *displayMean;
-    ResultDisplay *displaySum;
+    panel = new wxPanel(this, -1);
+    hbox = new wxBoxSizer(wxHORIZONTAL);
+    fgs = new wxFlexGridSizer(nRows, nColumns, 0, 0);
 
     for (int i = 0; i < nRows; i++)
         for (int j = 0; j < nColumns; j++) {
@@ -94,9 +82,9 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
                                                  wxSize(cellWidth, cellHeight));
                     }
                 } else {
-                    long style = wxTE_PROCESS_ENTER;
+                    long style1 = wxTE_PROCESS_ENTER;
                     tC = new TextControl(panel, i * nColumns + j, wxEmptyString, wxDefaultPosition,
-                                         wxSize(cellWidth, cellHeight), style);
+                                         wxSize(cellWidth, cellHeight), style1);
                     if (i > 0 && i < nRows - 1) { //setting the subject-columns
                         int id = 0; //id to handle the "enter text event"
                         if (j == 2) {
@@ -147,5 +135,34 @@ FlexGridSizer::FlexGridSizer(const wxString &title, const int windowWidth, const
     hbox->Add(fgs, 1, wxALL | wxEXPAND, 0);
     panel->SetSizer(hbox);
     Centre();
+}
+
+FlexGridSizer::~FlexGridSizer() {
+
+    delete displayMin;
+    delete displayMax;
+    delete displayMean;
+    delete displaySum;
+
+    for (auto itr = tCL2.begin(); itr != tCL2.end();) {
+        auto temp = *itr;
+        itr++;
+        delete temp;
+    }
+    for (auto itr = tCL5.begin(); itr != tCL5.end();) {
+        auto temp = *itr;
+        itr++;
+        delete temp;
+    }
+    for (auto itr = tCL8.begin(); itr != tCL8.end();) {
+        auto temp = *itr;
+        itr++;
+        delete temp;
+    }
+    for (auto itr = tCL11.begin(); itr != tCL11.end();) {
+        auto temp = *itr;
+        itr++;
+        delete temp;
+    }
 }
 

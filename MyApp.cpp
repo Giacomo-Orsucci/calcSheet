@@ -12,8 +12,8 @@ bool MyApp::OnInit() {
     static const int WINDOWHEIGHT = CELLHEIGHT * NROWS + 40;
     long style = wxCAPTION | wxSYSTEM_MENU | wxMINIMIZE_BOX | wxCLOSE_BOX;
 
-    fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
-                            CELLWIDTH, CELLHEIGHT, style);
+    FlexGridSizer *fgs = new FlexGridSizer(wxT("Calc Sheet"), WINDOWWIGHT, WINDOWHEIGHT, NROWS, NCOLUMNS,
+                                           CELLWIDTH, CELLHEIGHT, style);
     fgs->Show(true);
 
     return true;

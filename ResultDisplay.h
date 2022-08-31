@@ -31,5 +31,4 @@ private:
     Operation opr; //function executed by the specific observer
 };
 
-
 #endif //CALCSHEET_RESULTDISPLAY_H

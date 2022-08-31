@@ -4,7 +4,7 @@
 
 #include "TestMyApp.h"
 
-bool TestMyApp::OnInit() {
+bool TestMyApp::OnInit() { //initialization necessary to use wxWidget during the tests
     //all the necessary constants to draw the graphic window
     static const int NCOLUMNS = 12;
     static const int NROWS = 9;

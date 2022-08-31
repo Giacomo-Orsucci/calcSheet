@@ -15,7 +15,7 @@ class MyApp : public wxApp {
 public:
     virtual bool OnInit();
 
-    FlexGridSizer *fgs;
+    ~MyApp() override = default;
 };
 
 #endif //CALCSHEET_MyApp_H

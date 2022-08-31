@@ -38,6 +38,7 @@ void TextControl::notify() {
 void TextControl::OnEnter(wxCommandEvent &event) {
     notify();
 }
+
 //event handling
 BEGIN_EVENT_TABLE(TextControl, wxTextCtrl)
                 EVT_TEXT_ENTER(0, TextControl::OnEnter)

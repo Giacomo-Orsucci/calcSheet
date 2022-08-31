@@ -29,6 +29,7 @@ protected:
         wxApp::SetInstance(app);
         wxEntryStart(argc, argv);
         app->OnInit();
+
         wxPanel *panel = new wxPanel(app->fgs, -1);
         tC = new TextControl(panel, 0, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
         tC1 = new TextControl(panel, 0, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);

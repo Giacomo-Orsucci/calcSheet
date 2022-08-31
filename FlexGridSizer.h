@@ -18,6 +18,27 @@ class FlexGridSizer : public wxFrame {
 public:
     FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
                   const int nColumns, const int cellWidth, const int cellHeight, long style);
+
+    ~FlexGridSizer() override;
+
+private:
+    //lists to associate correctly subjects and observers
+    std::list<TextControl *> tCL2;
+    std::list<TextControl *> tCL5;
+    std::list<TextControl *> tCL8;
+    std::list<TextControl *> tCL11;
+
+    wxPanel *panel;
+    wxBoxSizer *hbox;
+    wxFlexGridSizer *fgs;
+    TextControl *tC;
+
+    //observers
+    ResultDisplay *displayMin;
+    ResultDisplay *displayMax;
+    ResultDisplay *displayMean;
+    ResultDisplay *displaySum;
+
 };
 
 #endif //CALCSHEET_FLEXGRIDSIZER_H
