@@ -10,12 +10,8 @@
 #include <list>
 #include "Subject.h"
 #include "Observer.h"
-#include "gtest/gtest.h"
-
 
 class TextControl : public wxTextCtrl, public Subject { //concrete subject
-    FRIEND_TEST(TextControlFixture, Get_and_Set);
-
 public:
 
     //exactly the parameter of the interested wxTextCtrl constructor
