@@ -8,10 +8,12 @@ ResultDisplay::ResultDisplay(Subject *cell, Operation operation) : resultCell(ce
 
 void ResultDisplay::subscribeSubject(Subject *s) {
     subjects.push_back(s);
+    update();
 }
 
 void ResultDisplay::unsubscribeSubject(Subject *s) {
     subjects.remove(s);
+    update();
 }
 
 void ResultDisplay::update() { //it implements the observer function depending on the operation attribute

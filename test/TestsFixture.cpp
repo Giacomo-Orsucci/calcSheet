@@ -125,3 +125,26 @@ TEST_F(TestsFixture, Sum) {
     ASSERT_TRUE(tC->getValue(value));
     ASSERT_EQ(value, -2);
 }
+
+TEST_F(TestsFixture, Sub_and_Unsub) {
+    tC1->setValue(1);
+    tC2->setValue(2);
+    tC3->AppendText("adf"); //simulates the wrong client's input
+    tC4->setValue(-5);
+    rDSum->subscribeSubject(tC1);
+    rDSum->subscribeSubject(tC2);
+    double value;
+    ASSERT_TRUE(tC->getValue(value));
+    ASSERT_EQ(value, 3);
+    rDSum->subscribeSubject(tC3);
+    rDSum->subscribeSubject(tC4);
+    ASSERT_TRUE(tC->getValue(value));
+    ASSERT_EQ(value, -2);
+    rDSum->unsubscribeSubject(tC2);
+    ASSERT_TRUE(tC->getValue(value));
+    ASSERT_EQ(value, -4);
+    rDSum->unsubscribeSubject(tC1);
+    rDSum->unsubscribeSubject(tC4);
+    ASSERT_TRUE(tC->getValue(value));
+    ASSERT_EQ(value, 0);
+}
