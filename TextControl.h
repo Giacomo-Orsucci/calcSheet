@@ -19,7 +19,7 @@ public:
                 const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = 0)
             : wxTextCtrl(parent, id, value, pos, size, style) {}
 
-    bool getValue(double &value) override;
+    bool getValue(double &value) const override;
 
     void setValue(double value) override;
 
@@ -27,7 +27,7 @@ public:
 
     void setObserver(Observer *o);
 
-    void notify() override;
+    void notify() const override;
 
     void OnEnter(wxCommandEvent &event);
 

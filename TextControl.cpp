@@ -6,7 +6,7 @@
 #include <string>
 
 
-bool TextControl::getValue(double &value) { //to get the value inserted in the cell
+bool TextControl::getValue(double &value) const { //to get the value inserted in the cell
     wxString string = wxTextCtrl::GetValue();
 
     if (string.ToDouble(&value))
@@ -31,7 +31,7 @@ void TextControl::setObserver(Observer *o) {
     observer = o;
 }
 
-void TextControl::notify() {
+void TextControl::notify() const {
     observer->update();
 }
 

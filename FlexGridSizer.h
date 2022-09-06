@@ -16,8 +16,8 @@
 class FlexGridSizer : public wxFrame {
 
 public:
-    FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
-                  const int nColumns, const int cellWidth, const int cellHeight, long style);
+   explicit FlexGridSizer(const wxString &title, const int windowWidth, const int windowHeight, const int nRows,
+                          const int nColumns, const int cellWidth, const int cellHeight, long style);
 
     ~FlexGridSizer() override;
 

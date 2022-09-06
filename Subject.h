@@ -7,9 +7,9 @@
 
 class Subject { //abstract observer
 public:
-    virtual void notify() = 0;
+    virtual void notify() const = 0;
 
-    virtual bool getValue(double &value) = 0;
+    virtual bool getValue(double &value) const = 0;
 
     virtual void setValue(double v) = 0;
 

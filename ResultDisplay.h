@@ -15,7 +15,7 @@ enum class Operation { //list of the implemented functions
 
 class ResultDisplay : public Observer { //concrete observer
 public:
-    ResultDisplay(Subject *cell, Operation operation);
+    explicit ResultDisplay(Subject *cell, Operation operation);
 
     void subscribeSubject(Subject *s) override;
 
